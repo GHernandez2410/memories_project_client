@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+### MEMORIES PROJECT ###
+Front end part of a MERN Web app: frontend ReactJs + Redux + deployed on Netlify and backend made on NodeJs + MongoDB deployed on Heroku.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+click to open -> [https://masatos-memories.netlify.app/]
 
 ## Available Scripts
 
