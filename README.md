@@ -1,6 +1,8 @@
 ### MEMORIES PROJECT ###
 Front end part of a MERN Web app: frontend ReactJs + Redux + deployed on Netlify and backend made on NodeJs + MongoDB deployed on Heroku.
 
+More features comming soon like authentication with differents roles!
+
 click to open -> [https://masatos-memories.netlify.app/]
 
 ## Available Scripts
