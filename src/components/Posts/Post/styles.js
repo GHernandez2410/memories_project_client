@@ -31,7 +31,7 @@ export default makeStyles({
     position: 'absolute',
     top: '20px',
     right: '20px',
-    color: 'white',
+    color: 'rgb(255 255 255 / 87%)',
   },
   grid: {
     display: 'flex',
@@ -40,6 +40,7 @@ export default makeStyles({
     display: 'flex',
     justifyContent: 'space-between',
     margin: '20px',
+    color:' rgb(255 255 255 / 87%)',
   },
   title: {
     padding: '0 16px',
