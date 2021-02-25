@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'https://masatos-memories.herokuapp.com/posts';
+const url = 'https://masatos-memories2410.herokuapp.com/posts';
 
 //  const url = 'http://localhost:5000/posts';
 
