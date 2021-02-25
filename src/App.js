@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 
+import Header from './components/Header/Header';
 import Posts from './components/Posts/Posts';
 import Form from './components/Form/Form';
 import { getPosts } from './actions/posts';
@@ -18,9 +19,7 @@ const App = () => {
 
   return (
     <Container maxWidth="lg">
-      <AppBar className={classes.appBar} position="static" color="inherit">
-        <Typography className={classes.heading} variant="h2" align="center">Memories</Typography>
-      </AppBar>
+      <Header/>
       <Grow in>
         <Container>
           <Grid className={classes.mainContainer} container justify="space-between" alignItems="stretch" spacing={3}>
