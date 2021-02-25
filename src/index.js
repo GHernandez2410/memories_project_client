@@ -10,7 +10,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 
-
 const store = createStore(reducers, compose(applyMiddleware(thunk)));
 
 ReactDOM.render(

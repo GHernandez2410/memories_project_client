@@ -5,9 +5,10 @@ import { useSelector } from 'react-redux';
 import Post from './Post/Post';
 import useStyles from './styles';
 
-const Posts = ({ setCurrentId }) => {
+const ListPosts = ({ setCurrentId }) => {
   const posts = useSelector((state) => state.posts);
   const classes = useStyles();
+  
   return (
     !posts.length ? <CircularProgress /> : (
       <Grid className={classes.container} container alignItems="stretch" spacing={3}>
@@ -21,4 +22,4 @@ const Posts = ({ setCurrentId }) => {
   );
 };
 
-export default Posts;
+export default ListPosts;
