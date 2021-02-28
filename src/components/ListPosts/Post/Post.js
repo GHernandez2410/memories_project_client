@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardActions, CardContent, CardMedia, Button, Typography } from '@material-ui/core/';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
+import ThumbUpAltOutlined from '@material-ui/icons/ThumbUpAltOutlined';
 import DeleteIcon from '@material-ui/icons/Delete';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import moment from 'moment';
@@ -12,13 +13,14 @@ import useStyles from './styles';
 const Post = ({ post, setCurrentId }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
+  const user = JSON.parse(localStorage.getItem('profile'));
 
   const getTitle = () => {
     return post.title;
   }
 
   const getCreator = () => {
-    return post.creator;
+    return post.name;
   }
 
   const getTimeCrated = () => {
@@ -45,6 +47,19 @@ const Post = ({ post, setCurrentId }) => {
     return dispatch(deletePost(postId));
   }
 
+  const Likes = () => {
+    if (getAmountofLikes() > 0) {
+      return post.likes.find((like) => like === (user?.result?.googleId || user?.result?._id))
+        ? (
+          <><ThumbUpAltIcon fontSize="small" />&nbsp;{getAmountofLikes() > 2 ? `You and ${getAmountofLikes()} others` : `${getAmountofLikes()} like${getAmountofLikes() > 1 ? 's' : ''}` }</>
+        ) : (
+          <><ThumbUpAltOutlined fontSize="small" />&nbsp;{getAmountofLikes()} {getAmountofLikes() === 1 ? 'Like' : 'Likes'}</>
+        );
+    }
+
+    return <><ThumbUpAltOutlined fontSize="small" />&nbsp;Like</>;
+  };
+
   return (
     <Card className={classes.card}>
       <CardMedia className={classes.media} image={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} title={getTitle()} />
@@ -63,7 +78,9 @@ const Post = ({ post, setCurrentId }) => {
         <Typography variant="body2" color="textSecondary" component="p">{getMessage()}</Typography>
       </CardContent>
       <CardActions className={classes.cardActions}>
-        <Button size="small" color="primary" onClick={() => onClickLikePost(post._id)}><ThumbUpAltIcon fontSize="small" /> Like {getAmountofLikes()} </Button>
+        <Button size="small" color="primary" onClick={() => onClickLikePost(post._id)}>           
+          <Likes />
+        </Button>
         <Button size="small" color="primary" onClick={() => onClickDeletePost(post._id)}><DeleteIcon fontSize="small" /> Delete</Button>
       </CardActions>
     </Card>
